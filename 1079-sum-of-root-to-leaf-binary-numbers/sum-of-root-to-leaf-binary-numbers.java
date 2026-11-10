@@ -14,8 +14,6 @@
  * }
  */
 class Solution {
-    StringBuilder sb=new StringBuilder("");
-    int RootSum=0;
     public int sumRootToLeaf(TreeNode root) {
        return dfs(root,0);
     }
