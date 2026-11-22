@@ -3,22 +3,20 @@ class Solution {
         long firstMax = Long.MIN_VALUE;
         long secMax = Long.MIN_VALUE;
         long trdMax = Long.MIN_VALUE;
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] > firstMax) {
+
+        for (int num : nums) {
+            if (num > firstMax) {
                 trdMax = secMax;
                 secMax = firstMax;
-                firstMax = nums[i];
-            } else if (nums[i] > secMax && nums[i] != firstMax) {
+                firstMax = num;
+            } else if (num > secMax && num != firstMax) {
                 trdMax = secMax;
-                secMax = nums[i];
-                
-            } else if (nums[i] > trdMax && nums[i] != secMax && nums[i]!=firstMax) {
-                trdMax = nums[i];
+                secMax = num;
+            } else if (num > trdMax && num != secMax && num != firstMax) {
+                trdMax = num;
             }
         }
-        if (trdMax == Long.MIN_VALUE) {
-            return (int)firstMax;
-        }
-        return (int)trdMax;
+
+        return (trdMax == Long.MIN_VALUE) ? (int) firstMax : (int) trdMax;
     }
 }
